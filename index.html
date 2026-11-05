@@ -11,6 +11,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <body>
    <header>
+
   <h1>Hello I am Ahmedin</h1>
   <img
     src="images/profile.jpg"
@@ -19,6 +20,9 @@
     width="200"
     height="200"
   />
+      <canvas id="logo" width="120" height="120">
+    Ahmedin Muhamed logo
+</canvas>
   <p>This is my portfolio website.</p>
   <nav>
     <a href="#abt">About Me</a>
@@ -110,6 +114,11 @@
         40%
     </meter>
 </p>
+<h3>Skills Bar Chart</h3>
+
+<canvas id="skillsChart" width="300" height="150">
+    A bar chart showing my skill levels.
+</canvas>
     <h3>My Learning Roadmap</h3>
 
     <ol type="1">
@@ -420,5 +429,53 @@
         All rights reserved &mdash; Ahmedin &trade;
     </p>
 </footer>
+<script>
+    const canvas = document.getElementById('logo');
+    const ctx = canvas.getContext('2d');
+
+ 
+    ctx.fillStyle = "#1f5fa8";
+    ctx.fillRect(0, 0, 120, 120);
+
+   
+    ctx.beginPath();
+    ctx.arc(60, 60, 45, 0, 2 * Math.PI);
+    ctx.fillStyle = "white";
+    ctx.fill();
+
+    ctx.fillStyle = "#1f5fa8";
+    ctx.font = "bold 36px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("AM", 60, 62);
+
+    // Draw skills bar chart
+const skillsCanvas = document.getElementById('skillsChart');
+const skillsCtx = skillsCanvas.getContext('2d');
+
+// Skill data
+const skills = [
+    { name: 'HTML', level: 85 },
+    { name: 'CSS', level: 60 },
+    { name: 'JavaScript', level: 40 }
+];
+
+// Draw bars and labels
+skills.forEach((skill, index) => {
+    const y = 20 + index * 40;
+    const barWidth = skill.level * 2;
+
+    skillsCtx.fillStyle = '#1f5fa8';
+    skillsCtx.fillRect(80, y, barWidth, 20);
+
+  
+    skillsCtx.fillStyle = '#000';
+    skillsCtx.font = '14px Arial';
+    skillsCtx.fillText(skill.name, 10, y + 15);
+
+   
+    skillsCtx.fillText(skill.level + '%', 85 + barWidth, y + 15);
+});
+</script>
 </body>
 </html>
