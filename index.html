@@ -203,12 +203,18 @@
 <form action="#" method="post">
   <p>
     <label for="visitor-name">Your Name:</label>
-    <input type="text" id="visitor-name" name="visitor-name" />
+    <input
+  type="text"
+  id="visitor-name"
+  name="visitor-name"
+  required
+  minlength="2"
+/>
   </p>
 
   <p>
     <label for="visitor-email">Your Email:</label>
-    <input type="email" id="visitor-email" name="visitor-email" />
+    <input type="email" id="visitor-email" name="visitor-email" required />
   </p>
 
   <p>
@@ -218,6 +224,7 @@
       name="visitor-message"
       rows="5"
       cols="30"
+      required
     ></textarea>
   </p>
 
