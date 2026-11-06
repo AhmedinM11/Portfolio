@@ -12,9 +12,7 @@
       content="Ahmedin Muhamed, portfolio, software engineering, web developer, HTML"
     />
     <meta name="author" content="Ahmedin Muhamed" />
-
     <title>My Portfolio | Ahmedin Muhamed</title>
-
     <link rel="icon" type="image/png" href="images/favicon.png" />
   </head>
   <body>
@@ -73,7 +71,13 @@
         <q>technology can be used to solve real-world problems</q> and improve
         people's lives.
       </p>
-      <p>Book i am reading:<cite>Clean Code</cite>by Robert C. Martin</p>
+      <aside>
+        <h3>Currently Reading</h3>
+        <p>
+          <cite>Clean Code</cite> by Robert C. Martin. This book helps me
+          understand how to write readable and maintainable code.
+        </p>
+      </aside>
       <hr />
       <h2 id="skl">Skills</h2>
       <ul>
@@ -149,24 +153,52 @@
         application in Flask:
       </p>
       <pre><code>print("Hello, World!")</code></pre>
-      <h3>Simple Calculator</h3>
-      <img
-        src="images/calculatot.png"
-        alt="screenshot of the calculator"
-        width="400"
-        height="250"
-      />
-      <p>
-        A simple calculator built using HTML, CSS, and JavaScript. It can
-        perform basic arithmetic operations like addition, subtraction,
-        multiplication, and division.
-      </p>
-      <h3>Weather App</h3>
-      <p>
-        A weather application that fetches real-time weather data from an API
-        and displays it to the user. It allows users to search for weather
-        information by city name.
-      </p>
+      <article>
+        <h3>Simple Calculator</h3>
+        <img
+          src="images/calculatot.png"
+          alt="screenshot of the calculator"
+          width="400"
+          height="250"
+        />
+        <p>
+          A simple calculator built using HTML, CSS, and JavaScript. It can
+          perform basic arithmetic operations like addition, subtraction,
+          multiplication, and division.
+        </p>
+        <details>
+          <summary>How I built it</summary>
+          <ol>
+            <li>Designed the calculator interface using HTML.</li>
+            <li>Styled the calculator using CSS.</li>
+            <li>Used JavaScript to perform arithmetic operations.</li>
+            <li>Tested the calculator with different numbers.</li>
+          </ol>
+        </details>
+      </article>
+      <article>
+        <h3>Weather App</h3>
+        <img
+          src="images/weather-app.png"
+          alt="screenshot of the weather app"
+          width="400"
+          height="250"
+        />
+        <p>
+          A weather application that fetches real-time weather data from an API
+          and displays it to the user. It allows users to search for weather
+          information by city name.
+        </p>
+        <details>
+          <summary>How I built it</summary>
+          <ol>
+            <li>Designed the weather app interface using HTML.</li>
+            <li>Styled the app using CSS.</li>
+            <li>Used JavaScript to fetch weather data from an API.</li>
+            <li>Displayed the weather information to the user.</li>
+          </ol>
+        </details>
+      </article>
       <hr />
       <h2 id="edc">Education</h2>
       <h3>Bsc in software engineering</h3>
@@ -388,6 +420,13 @@
         <button type="submit">Send Message</button>
         <button type="reset">Reset Form</button>
       </form>
+      <button type="button" id="openDialog">Hire Me</button>
+
+      <dialog id="hireDialog">
+        <h2>Let's Work Together!</h2>
+        <p>Thank you for considering me for your project.</p>
+        <button type="button" id="closeDialog">Close</button>
+      </dialog>
       <p>
         GitHub:
         <a
@@ -415,6 +454,7 @@
           poster="images/project-demo-poster.jpg"
         >
           <source src="media/project-demo.mp4" type="video/mp4" />
+          <source src="media/project-demo.webm" type="video/webm" />
           <track
             src="media/project-demo.vtt"
             kind="captions"
@@ -469,8 +509,7 @@
       </map>
     </main>
     <footer>
-      <p>&copy; 2026 Ahmedin Muhamed. All rights reserved.</p>
-
+      <p>&copy; <time datetime="2026">2026</time> Ahmedin Muhamed</p>
       <p>
         Made with &hearts; and &lt;code&gt;. All rights reserved &mdash; Ahmedin
         &trade;
@@ -515,6 +554,15 @@
         skillsCtx.fillText(skill.name, 10, y + 15);
 
         skillsCtx.fillText(skill.level + "%", 85 + barWidth, y + 15);
+      });
+      const hireDialog = document.getElementById("hireDialog");
+      const openDialog = document.getElementById("openDialog");
+      const closeDialog = document.getElementById("closeDialog");
+      openDialog.addEventListener("click", () => {
+        hireDialog.showModal();
+      });
+      closeDialog.addEventListener("click", () => {
+        hireDialog.close();
       });
     </script>
   </body>
